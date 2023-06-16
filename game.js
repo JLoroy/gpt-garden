@@ -22,7 +22,7 @@ const vegetables = [
     {name: 'Corn', cost: 16, revenue: 112, growthTime: 7600},
     {name: 'Broccoli', cost: 32, revenue: 224, growthTime: 15200},
     {name: 'Artichoke', cost: 64, revenue: 448, growthTime: 30400},
-    {name: 'Ananas', cost: 128, revenue: 896, growthTime: 60800}
+    {name: 'Pineapple', cost: 128, revenue: 896, growthTime: 60800}
   ];
   const daylightTimes = [
     {month: 'January', sunrise: 7.33, sunset: 16.83},
@@ -85,19 +85,14 @@ function harvestVegetable(index) {
     let gardenTile = gardenContainer.children[index];
     gardenTile.textContent = '';
     gardenTile.classList.remove('ready-to-harvest');
+    
+    gardenTile.style.backgroundImage = ``;
 }
 
 // Initialize the game
 function initializeGame() {
 
-  // Initialize vegetable list
-  for(let vegetable of vegetables) {
-    let vegElement = document.createElement('div');
-    vegElement.classList.add('vegetable');
-    vegElement.textContent = vegetable.name;
-    vegElement.addEventListener('click', () => selectVegetable(vegetable, vegElement));
-    vegetableListContainer.appendChild(vegElement);
-  }
+  renderVegetableList();
 
   // Initialize garden tiles
   for(let i = 0; i < 25; i++) {
@@ -115,6 +110,25 @@ function initializeGame() {
   setInterval(gameLoop, 100);
 }
 
+function renderVegetableList() {
+    vegetableListContainer.innerHTML = '';
+    vegetables.forEach(veg => {
+        const vegElement = document.createElement('div');
+        vegElement.classList.add('vegetable');
+
+        const vegName = document.createElement('p');
+        vegName.textContent = veg.name;
+        //vegElement.appendChild(vegName);
+
+        const vegImage = document.createElement('img');
+        vegImage.src = `${veg.name.toLowerCase()}.png`;
+        vegImage.alt = veg.name;
+        vegElement.appendChild(vegImage);
+
+        vegElement.addEventListener('click', () => selectVegetable(veg, vegElement));
+        vegetableListContainer.appendChild(vegElement);
+    });
+}
 
   
 
@@ -138,6 +152,7 @@ function gameLoop() {
       if (isDay) { // Decrease remaining time only during daylight hours
         tile.remainingTime -= 24;
         if (tile.remainingTime <= 0) {
+          tile.remainingTime = 0
           // Vegetable is ready to harvest
           let gardenTile = gardenContainer.children[index];
           gardenTile.classList.add('ready-to-harvest');
@@ -145,7 +160,8 @@ function gameLoop() {
       }
       // Update tile display
       let gardenTile = gardenContainer.children[index];
-      gardenTile.textContent = tile.vegetable.name + ' (' + tile.remainingTime + ' min)';
+      gardenTile.textContent = tile.remainingTime + ' min';
+      gardenTile.style.backgroundImage = `url('${tile.vegetable.name.toLowerCase()}.png')`;
     }
   });
 

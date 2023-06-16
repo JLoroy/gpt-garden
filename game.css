@@ -42,8 +42,7 @@ body {
 }
 
 .vegetable {
-    padding: 10px;
-    background-color: #e9ac05;
+    background-color: #ffffff;
     border: none;
     cursor: pointer;
     text-align: center;
@@ -54,8 +53,12 @@ body {
     background-color: #e0e0e0;
 }
 
-.vegetable.selected {
-    background-color: #ffd000;
+.vegetable.selected img{
+    box-shadow: 0 0 10px 5px limegreen; /* Glowing effect */
+}
+
+.vegetable img {
+    width:50px;
 }
 
 .day-mode {

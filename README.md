@@ -1,7 +1,3 @@
-Absolutely, here's a draft for your README file:
-
----
-
 # GPT Garden Game
 
 ![Game Screenshot](./screenshot.png)
