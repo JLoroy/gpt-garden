@@ -1,0 +1,106 @@
+Core classes, functions, and methods:
+
+1. Game: Main class for managing the game state and logic
+   - start(): Starts the game
+   - update(): Updates the game state
+   - plantVegetable(): Plants a vegetable in the garden
+   - harvestVegetable(): Harvests a vegetable and updates player's funds
+   - checkDayNightCycle(): Updates the day/night cycle based on in-game time
+   - updateTime(): Updates the in-game time display
+   - updateGarden(): Updates the garden state and vegetable growth
+   - checkGameEnd(): Checks if the game has ended
+
+2. Vegetable: Class for managing vegetable properties
+   - cost: Cost to plant the vegetable
+   - revenue: Revenue generated when harvested
+   - timeToGrow: Time to grow the vegetable
+
+3. UI: Class for managing the user interface
+   - updateFunds(): Updates the player's funds display
+   - updateVegetableList(): Updates the list of available vegetables
+   - updateGarden(): Updates the garden display
+   - updateDayNightMode(): Updates the day/night mode based on the current in-game time
+
+```game.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT Garden</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="time-funds-container">
+            <div id="time-display"></div>
+            <div id="funds-display"></div>
+        </div>
+        <div id="garden-container"></div>
+        <div id="vegetable-list-container"></div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
+```
+
+```game.css
+body {
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#time-funds-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#garden-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+    width: 100%;
+    height: 500px;
+}
+
+#vegetable-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.day-mode {
+    background-color: white;
+}
+
+.night-mode {
+    background-color: darkblue;
+}
+```
+
+```game.js
+class Game {
+    // ...
+}
+
+class Vegetable {
+    // ...
+}
+
+class UI {
+    // ...
+}
+
+const game = new Game();
+game.start();
+```
+
+Please note that the provided code is a starting point for the game implementation. You may need to adjust and expand the code to fully implement the game according to the provided specifications.

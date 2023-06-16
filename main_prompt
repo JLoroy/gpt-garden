@@ -1,0 +1,52 @@
+We're developing a html5 minigame: GPT Garden is a fast-paced, strategy-based mini game where players manage a 5x5 grid garden in an environment where each in-game day lasts just 6 seconds. The goal is to efficiently cultivate a variety of vegetables, each with unique growth times and yields, to reach a revenue target of 1000 units as quickly as possible.
+
+User Interface:
+
+The user interface prominently displays the current in-game date and time at the top (e.g., 21st of March at 6AM). Adjacent to it, the players' current funds are shown, starting at 10 units.
+
+The main game area is located on the left and comprises the 5x5 garden. On the right, a list of available vegetables that can be planted is displayed, including their cost, revenue, and growth time.
+
+The game interface includes a dynamic day and night mode system. During the daytime, the background is white, with a sun icon next to the time. After sunset, the interface transitions to a dark blue nighttime mode with a moon icon.
+
+Gameplay:
+
+Players plant seeds by first selecting a vegetable from the list, then clicking an empty square in the garden. The cost of the vegetable is deducted from the player's current funds, and the tile displays the corresponding vegetable image and a timer showing the remaining growth time.
+
+Vegetables grow only during daylight hours. Every 0.1 seconds, the game checks if the in-game time is between sunrise and sunset. If it is, the remaining growth time for each planted vegetable is reduced by 24 in-game minutes.
+
+When a vegetable's growth time reaches zero, the tile turns green, indicating that the vegetable is ready to be harvested. Players harvest vegetables by clicking the green tile, which adds the vegetable's revenue to the player's funds and clears the tile for new planting.
+
+The game ends when the player's total revenue reaches 1000 units.
+
+Vegetables:
+
+Each vegetable has a cost to plant, a revenue generated when harvested, and a time to grow. Here are the details:
+
+Carrot: Cost - 1, Revenue - 5, Time to grow - 20000 in-game minutes
+Melon: Cost - 4, Revenue - 10, Time to grow - 40000 in-game minutes
+Beetroot: Cost - 10, Revenue - 12, Time to grow - 10000 in-game minutes
+Corn: Cost - 5, Revenue - 50, Time to grow - 100000 in-game minutes
+Soya: Cost - 50, Revenue - 500, Time to grow - 30000 in-game minutes
+Day/Night Cycle:
+
+The game follows the pattern of sunrise and sunset throughout the year. The UI switches between day and night modes accordingly. Here is the sunrise and sunset timetable:
+
+Month / Sunrise / Sunset
+
+January: 7:20 AM / 4:50 PM
+February: 6:50 AM / 5:30 PM
+March: 6:10 AM / 6:10 PM
+April: 6:20 AM / 7:30 PM
+May: 5:40 AM / 8:00 PM
+June: 5:30 AM / 8:30 PM
+July: 5:40 AM / 8:30 PM
+August: 6:00 AM / 7:50 PM
+September: 6:30 AM / 7:00 PM
+October: 7:00 AM / 6:10 PM
+November: 6:30 AM / 4:50 PM
+December: 7:10 AM / 4:30 PM
+
+
+Files:
+I expect to have game.html, game.js and game.css
+images like carrot.png will be in static/vegetables

@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+}
+
+#time-funds-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#garden-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    width: 100%;
+}
+
+.garden-tile {
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#vegetable-list-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-top:15px;
+}
+
+.vegetable {
+    padding: 10px;
+    background-color: #e9ac05;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.vegetable:hover {
+    background-color: #e0e0e0;
+}
+
+.vegetable.selected {
+    background-color: #ffd000;
+}
+
+.day-mode {
+    background-color: white;
+}
+
+.night-mode {
+    background-color: rgb(131, 131, 198);
+    color: white;
+}
+
+.ready-to-harvest {
+    box-shadow: 0 0 10px 5px limegreen; /* Glowing effect */
+    transform: scale(1.1); /* Slightly increase the size */
+    transition: transform .2s ease-in-out; /* Smooth scaling transition */
+}
